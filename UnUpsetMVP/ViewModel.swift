@@ -55,8 +55,8 @@ final class TimerViewModel {
     }
     
     init(){
-        selectedMinutesAmount = 0
-        selectedSecondsAmount = 19
+        selectedMinutesAmount = 5
+        selectedSecondsAmount = 0
         
         secondsToCompletion = totalTimeForCurrentSelection
         

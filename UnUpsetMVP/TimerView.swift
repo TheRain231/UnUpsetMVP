@@ -31,6 +31,7 @@ struct TimerView: View {
                                 .frame(width: 60, alignment: .leading)
                         }
                         .font(.system(size: 100))
+                        .fontWeight(.light)
                     }
                 }
                 
