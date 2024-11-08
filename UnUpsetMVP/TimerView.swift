@@ -26,7 +26,7 @@ struct TimerView: View {
                             Text(":")
                                 .offset(y: -10)
                             Text("\(vm.secondsProgressFirst)")
-                                .frame(width: 60, alignment: .leading)
+                                .frame(width: 60)
                             Text("\(vm.secondsProgressSecond)")
                                 .frame(width: 60, alignment: .leading)
                         }

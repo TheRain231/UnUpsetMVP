@@ -36,9 +36,6 @@ final class TimerViewModel {
             switch state {
             case .cancelled:
                 timer.invalidate()
-                selectedMinutesAmount = 0
-                selectedSecondsAmount = 5
-                
                 secondsToCompletion = totalTimeForCurrentSelection
                 
                 minutesProgress = String(format: "%01i", secondsToCompletion / 60)
@@ -58,8 +55,8 @@ final class TimerViewModel {
     }
     
     init(){
-        selectedMinutesAmount = 1
-        selectedSecondsAmount = 9
+        selectedMinutesAmount = 0
+        selectedSecondsAmount = 19
         
         secondsToCompletion = totalTimeForCurrentSelection
         
