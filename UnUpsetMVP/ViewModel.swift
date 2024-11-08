@@ -91,4 +91,14 @@ final class TimerViewModel {
             }
         })
     }
+    
+    func playButtonAction(){
+        if state != .active{
+            state = .active
+        }
+    }
+    
+    var isActive: Bool {
+        state == .active
+    }
 }

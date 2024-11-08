@@ -30,34 +30,20 @@ struct TimerView: View {
                                 .frame(width: 60)
                         }
                         .font(.system(size: 100))
-                    
                     }
                 }
                 
                 Button {
-                    if vm.state != .active{
-                        vm.state = .active
-                    }
+                    vm.playButtonAction()
                 } label: {
                     Image(systemName: "play.fill")
                         .font(.system(size: 70))
                         .padding()
                 }
-                .buttonStyle(PlayButtonStyle(isActive: vm.state == .active))
+                .buttonStyle(PlayButtonStyle(isActive: vm.isActive))
                 .animation(.smooth, value: vm.state)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-        }
-        
-    }
-    
-    struct PlayButtonStyle: ButtonStyle {
-        var isActive: Bool
-
-        func makeBody(configuration: Self.Configuration) -> some View {
-            configuration.label
-                .foregroundStyle(Color(isActive ? "ButtonActive" : "ButtonInactive"))
         }
     }
     
@@ -77,6 +63,15 @@ struct TimerView: View {
                 .rotationEffect(Angle(degrees: 270))
         }
         .animation(.snappy(duration: 1.0), value: progress)
+    }
+}
+
+struct PlayButtonStyle: ButtonStyle {
+    var isActive: Bool
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .foregroundStyle(Color(isActive ? "ButtonActive" : "ButtonInactive"))
     }
 }
 
