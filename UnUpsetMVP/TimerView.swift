@@ -22,12 +22,13 @@ struct TimerView: View {
                     HStack(alignment: .center, spacing: 0) {
                         Group{
                             Text(vm.minutesProgress)
-                                .frame(width: 60)
+                                .frame(width: 60, alignment: .trailing)
                             Text(":")
+                                .offset(y: -10)
                             Text("\(vm.secondsProgressFirst)")
-                                .frame(width: 60)
+                                .frame(width: 60, alignment: .leading)
                             Text("\(vm.secondsProgressSecond)")
-                                .frame(width: 60)
+                                .frame(width: 60, alignment: .leading)
                         }
                         .font(.system(size: 100))
                     }
