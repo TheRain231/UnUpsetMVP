@@ -24,6 +24,8 @@ final class TimerViewModel {
     private var secondsToCompletion: Int = 300
     private(set) var minutesProgress: String = "5"
     private(set) var secondsProgress: String = "00"
+    private(set) var secondsProgressFirst: String = "0"
+    private(set) var secondsProgressSecond: String = "0"
         
 
     // MARK: Public Properties
@@ -41,6 +43,8 @@ final class TimerViewModel {
                 
                 minutesProgress = String(format: "%01i", secondsToCompletion / 60)
                 secondsProgress = String(format: "%02i", max(secondsToCompletion % 60, 0))
+                secondsProgressFirst = String(secondsProgress[secondsProgress.index(secondsProgress.startIndex, offsetBy: 0)])
+                secondsProgressSecond = String(secondsProgress[secondsProgress.index(secondsProgress.startIndex, offsetBy: 1)])
                 
                 progress = 0.01
                 
@@ -61,6 +65,9 @@ final class TimerViewModel {
         
         minutesProgress = String(format: "%01i", secondsToCompletion / 60)
         secondsProgress = String(format: "%02i", max(secondsToCompletion % 60, 0))
+        
+        secondsProgressFirst = String(secondsProgress[secondsProgress.index(secondsProgress.startIndex, offsetBy: 0)])
+        secondsProgressSecond = String(secondsProgress[secondsProgress.index(secondsProgress.startIndex, offsetBy: 1)])
     }
 
     // Powers the ProgressView
@@ -75,6 +82,9 @@ final class TimerViewModel {
 
             self.minutesProgress = String(format: "%01i", secondsToCompletion / 60)
             self.secondsProgress = String(format: "%02i", max(secondsToCompletion % 60, 0))
+            
+            secondsProgressFirst = String(secondsProgress[secondsProgress.index(secondsProgress.startIndex, offsetBy: 0)])
+            secondsProgressSecond = String(secondsProgress[secondsProgress.index(secondsProgress.startIndex, offsetBy: 1)])
             
             if self.secondsToCompletion < 0 {
                 self.state = .cancelled

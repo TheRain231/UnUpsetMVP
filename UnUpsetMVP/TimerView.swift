@@ -19,11 +19,18 @@ struct TimerView: View {
                 ZStack{
                     ProgressView(progress: vm.progress)
                         .frame(width: size.width * 0.7, height: size.width * 0.7)
-                    HStack(spacing: 0) {
+                    HStack(alignment: .center, spacing: 0) {
                         Group{
-                            Text("\(vm.minutesProgress):\(vm.secondsProgress)")
+                            Text(vm.minutesProgress)
+                                .frame(width: 60)
+                            Text(":")
+                            Text("\(vm.secondsProgressFirst)")
+                                .frame(width: 60)
+                            Text("\(vm.secondsProgressSecond)")
+                                .frame(width: 60)
                         }
                         .font(.system(size: 100))
+                    
                     }
                 }
                 
