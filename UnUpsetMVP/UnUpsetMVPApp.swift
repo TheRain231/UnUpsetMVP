@@ -12,6 +12,8 @@ struct UnUpsetMVPApp: App {
     
     init(){
         NotificationManager.shared.requestAuthorization()
+        NotificationManager.shared.scheduleNotification()
+
     }
     
     var body: some Scene {
