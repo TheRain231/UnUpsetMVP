@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct UnUpsetMVPApp: App {
+    
+    init(){
+        NotificationManager.shared.requestAuthorization()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

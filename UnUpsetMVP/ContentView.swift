@@ -28,7 +28,7 @@ struct ContentView: View {
         .overlay(alignment: .bottom) {
             ZStack{
                 Rectangle()
-                    .frame(width: .infinity, height: 1)
+                    .frame(height: 1)
             }
             .offset(y: -50)
         }
