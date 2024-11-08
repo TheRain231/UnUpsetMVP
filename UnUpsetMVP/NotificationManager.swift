@@ -12,7 +12,7 @@ class NotificationManager {
     static let shared = NotificationManager()
     
     func requestAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { success, error in
             if let error = error {
                 print("error: \(error)")
             }  else {
@@ -27,9 +27,8 @@ class NotificationManager {
         content.title = "Пример!"
         content.body = "Лучше бы тебе запустить этот таймер"
         content.sound = .default
-        content.badge = .init()
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10800, repeats: true)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
